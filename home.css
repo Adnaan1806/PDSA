@@ -3,4 +3,67 @@
 *{
    font-family: "Poppins", sans-serif;
    font-weight: 500;
+   text-align: center;
+   margin: 10;
+   padding: 15px;
+}
+
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button{
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover{
+   background-color: #0056b3;
+}
+
+.hidden{
+    
+}
+
+#choices{
+   display: flex;
+   justify-content: space-around;
+   margin-top: 20px;
+}
+
+.choice{
+   background-color: #e7e7e7;
+   padding: 10px;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.choice:hover{
+    background-color: #ddd;
+}
+
+#feedback{
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+#results{
+    margin-top: 20px;
+}
+
+input[type="text"]{
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
