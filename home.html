@@ -7,31 +7,21 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Predict value Index</h1>
-
-        <button id="start">Start Game</button>
-
-        <div class="hidden" id="gameArea">
-            <p id="randomNumberDisplay"></p>
-
-            <div id="choices">
-
+    <body>
+        <div class="container">
+            <h1>Predict the Value Index Game</h1>
+            <button id="startGameButton">Start Game</button>
+            <div id="gameArea" class="hidden">
+                <p id="randomNumberText"></p>
+                <div id="choices"></div>
+                <button id="nextRoundButton" class="hidden">Next Round</button>
             </div>
-
-            <p id="feedback"></p>
-
-            <input type="text" id="playername" placeholder="Enter your name">
-            <button class="hidden" id="submitChoice">Submit</button>
+            <div id="result"></div>
+            <div id="statistics" class="hidden">
+                <h2>Search Algorithm Results</h2>
+                <ul id="resultsList"></ul>
+            </div>
         </div>
-
-        <div id="results">
-            <h2>Search Results</h2>
-            <p id="searchResults"></p>
-        </div>
-
-    </div>
-
-    <script src="index.js"></script>
-</body>
+        <script src="index.js"></script>
+    </body>
 </html>
