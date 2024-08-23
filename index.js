@@ -47,11 +47,38 @@ function handleChoice(choice) {
     document.getElementById('nextRoundButton').classList.remove('hidden');
 }
 
+function saveName() {
+    const playerName = document.getElementById('playerNameInput').value;
+
+    if (playerName.trim() !== '') {
+        saveUserScore(playerName, randomNumber, randomIndex);
+        document.getElementById('nameModal').classList.add('hidden');
+    } else {
+        alert('Please enter a valid name.');
+    }
+}
+
 function saveUserScore(name, value, index) {
-    const record = { name, value, index };
-    let scores = JSON.parse(localStorage.getItem('scores')) || [];
-    scores.push(record);
-    localStorage.setItem('scores', JSON.stringify(scores));
+    const data = { name, value, index };
+
+    fetch('http://localhost:4001/saveResponse', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Score saved successfully!');
+        } else {
+            alert('Error saving score.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while saving the score.');
+    });
 }
 
 function runSearchAlgorithms() {
