@@ -14,6 +14,12 @@ function nextRound() {
     randomNumber = Math.floor(Math.random() * 1000000) + 1;
     randomIndex = numberArray.indexOf(randomNumber);
 
+    // Regenerate random number if not found
+    while (randomIndex === -1) {
+        randomNumber = Math.floor(Math.random() * 1000000) + 1;
+        randomIndex = numberArray.indexOf(randomNumber);
+    }
+
     document.getElementById('randomNumberText').innerText = `Predict the index of the value: ${randomNumber}`;
     displayChoices();
     runSearchAlgorithms();
@@ -21,6 +27,8 @@ function nextRound() {
 
 function generateRandomNumbers() {
     numberArray = Array.from({length: 5000}, () => Math.floor(Math.random() * 1000000) + 1);
+    randomNumber = Math.floor(Math.random() * 1000000) + 1;
+    numberArray.push(randomNumber);  // Ensure the random number is added to the array
     numberArray.sort((a, b) => a - b);
 }
 
