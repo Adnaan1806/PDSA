@@ -125,7 +125,7 @@ function runSearchAlgorithms() {
   document.getElementById("statistics").classList.remove("hidden");
 }
 
-// Search Algorithms
+// Search types
 
 function binarySearch(arr, x) {
   let left = 0;
