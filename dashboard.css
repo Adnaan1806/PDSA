@@ -1,0 +1,48 @@
+/* Apply a universal background color */
+body {
+    background-color: rgb(59, 59, 82);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container to hold all game boxes */
+.container {
+    display: flex;
+    gap: 20px; /* Space between boxes */
+}
+
+/* Common styles for game boxes */
+.game {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px; /* Rounded corners for a nicer look */
+}
+
+/* Different background colors for each box */
+.game1 {
+    background-color: aqua;
+}
+
+.game2 {
+    background-color: lightcoral;
+}
+
+.game3 {
+    background-color: lightgreen;
+}
+
+.game4 {
+    background-color: orange;
+}
+
+.game5 {
+    background-color: violet;
+}
