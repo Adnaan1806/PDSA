@@ -1,4 +1,4 @@
-/* Apply a universal background color */
+
 * {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
@@ -8,7 +8,7 @@ body {
     background-color: rgb(45, 74, 58);
     margin: 0;
     display: flex;
-    flex-direction: column; /* Stack heading on top of the container */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -19,18 +19,18 @@ body {
 
 h1 {
     color: rgb(251, 251, 251);
-    font-size: 2.5em; /* Increase font size */
-    text-align: center; /* Center text horizontally */
-    margin-bottom: 150px; /* Space between heading and game boxes */
+    font-size: 2.5em; 
+    text-align: center; 
+    margin-bottom: 150px; 
 }
 
-/* Container to hold all game boxes */
+
 .container {
     display: flex;
-    gap: 30px; /* Space between boxes */
+    gap: 30px;
 }
 
-/* Common styles for game boxes */
+
 .game {
     width: 150px;
     height: 120px;
@@ -42,14 +42,14 @@ h1 {
     color: white;
     box-shadow: 0 0 12px rgba(164, 222, 3, 0.86);
     cursor: pointer;
-    border-radius: 10px; /* Rounded corners for a nicer look */
+    border-radius: 10px; 
 }
 
 .game:hover {
-    transform: scale(1.4); /* Scale up on hover */
+    transform: scale(1.4); 
 }
 
-/* Different background colors for each box */
+
 .game1, .game2, .game3, .game4, .game5 {
     background-color: rgb(48, 84, 84);
 }
