@@ -207,12 +207,10 @@ function interpolationSearch(arr, x) {
       if (arr[low] === x) return low;
       return -1;
     }
-    const pos =
-      low +
-      Math.floor(((high - low) / (arr[high] - arr[low])) * (x - arr[low]));
-    if (arr[pos] === x) return pos;
-    if (arr[pos] < x) low = pos + 1;
-    else high = pos - 1;
+    const idx = low + Math.floor(((high - low) / (arr[high] - arr[low])) * (x - arr[low]));
+    if (arr[idx] === x) return idx;
+    if (arr[idx] < x) low = idx + 1;
+    else high = idx - 1;
   }
   return -1;
 }
