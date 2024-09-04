@@ -125,7 +125,7 @@ function runSearchAlgorithms() {
   document.getElementById("statistics").classList.remove("hidden");
 }
 
-// Search types
+
 
 function binarySearch(arr, x) {
   let left = 0;
@@ -141,13 +141,13 @@ function binarySearch(arr, x) {
 
 function jumpSearch(arr, x) {
   const n = arr.length;
-  const step = Math.floor(Math.sqrt(n));
+  const m = Math.floor(Math.sqrt(n));
   let prev = 0;
-  let curr = step;
+  let curr = m;
 
   while (arr[Math.min(curr, n) - 1] < x) {
     prev = curr;
-    curr += step;
+    curr += m;
     if (prev >= n) return -1;
   }
 
@@ -168,33 +168,33 @@ function exponentialSearch(arr, x) {
 
 function fibonacciSearch(arr, x) {
   const n = arr.length;
-  let fibMm2 = 0; // (m-2)'th Fibonacci number
-  let fibMm1 = 1; // (m-1)'th Fibonacci number
-  let fibM = fibMm2 + fibMm1; // m'th Fibonacci number
+  let fibSec = 0; // (m-2)'th Fibonacci number
+  let fibfst = 1; // (m-1)'th Fibonacci number
+  let f = fibSec + fibfst; // m'th Fibonacci number
 
-  while (fibM < n) {
-    fibMm2 = fibMm1;
-    fibMm1 = fibM;
-    fibM = fibMm2 + fibMm1;
+  while (f < n) {
+   fibSec = fibfst;
+    fibfst = f;
+    f = fibSec + fibfst;
   }
 
   let offset = -1;
-  while (fibM > 1) {
-    const i = Math.min(offset + fibMm2, n - 1);
+  while (f > 1) {
+    const i = Math.min(offset + fibSec, n - 1);
 
     if (arr[i] < x) {
-      fibM = fibMm1;
-      fibMm1 = fibMm2;
-      fibMm2 = fibM - fibMm1;
+      f = fibfst;
+      fibfst = fibSec;
+     fibSec = f - fibfst;
       offset = i;
     } else if (arr[i] > x) {
-      fibM = fibMm2;
-      fibMm1 -= fibMm2;
-      fibMm2 = fibM - fibMm1;
+      f = fibSec;
+      fibfst -= fibSec;
+     fibSec = f - fibfst;
     } else return i;
   }
 
-  if (fibMm1 && arr[offset + 1] === x) return offset + 1;
+  if (fibfst && arr[offset + 1] === x) return offset + 1;
   return -1;
 }
 
