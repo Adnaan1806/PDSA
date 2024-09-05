@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0; 
+}
+
+.chessboard-container {
+    border: 20px solid #343131; 
+    border-radius: 10px; 
+}
+
+.chessboard {
+    display: grid;
+    grid-template-columns: repeat(16, 40px);
+    grid-template-rows: repeat(16, 40px);
+    gap: 0; 
+}
+
+.row {
+    display: contents; 
+}
+
+.square {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 0; 
+    background-color: transparent; 
+}
+
+.light {
+    background-color: #FEFAE0; 
+}
+
+.dark {
+    background-color: #799351; 
+}
+
+.queen {
+    background-image: url('/assets/queen.png'); 
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}

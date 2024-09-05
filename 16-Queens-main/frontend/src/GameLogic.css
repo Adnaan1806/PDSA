@@ -1,0 +1,58 @@
+.game-container {
+    display: flex;
+    gap: 40px; 
+    align-items: flex-start; 
+    justify-content: center; 
+    padding: 20px;
+    margin-top: 20px; 
+  }
+  
+  .chessboard-container {
+    border: 20px solid #343131;
+    border-radius: 10px;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    max-width: 300px;
+    text-align: center; 
+    margin-left: 20px; 
+  }
+  
+  h1 {
+    margin: 0 0 20px; 
+    font-size: 28px; 
+  }
+  
+  .player-name-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #43727c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  .submit-button:hover {
+    background-color: #365d63;
+  }
+  
+  .message {
+    margin-top: 10px;
+    color: #d9534f; 
+    font-size: 14px;
+  }
+  

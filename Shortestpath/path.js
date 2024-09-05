@@ -1,7 +1,7 @@
-
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 
 function populateTableWithRandomNumbers() {
     const cells = [
@@ -39,14 +39,12 @@ for (let node in graph) {
 distances[startNode] = 0;
 
 while (unvisited.size > 0) {
-
     let currentNode = null;
     for (let node of unvisited) {
         if (currentNode === null || distances[node] < distances[currentNode]) {
             currentNode = node;
         }
     }
-
     for (let neighbor in graph[currentNode]) {
         if (unvisited.has(neighbor)) {
             let tentativeDistance = distances[currentNode] + graph[currentNode][neighbor];
@@ -85,17 +83,6 @@ for (let i = 0; i < Object.keys(graph).length - 1; i++) {
 return distances;
 }
 
-function saveName() {
-const playerName = document.getElementById("playerNameInput").value;
-
-if (playerName.trim() !== "") {
-  saveUserScore(playerName, randomNumber, randomIndex);
-  document.getElementById("nameModal").classList.add("hidden");
-} else {
-  alert("Please enter a valid name.");
-}
-}
-
 let startTime = new Date().getTime();
 
 function checkAnswer() {
@@ -106,7 +93,7 @@ const userDistance = parseInt(document.getElementById('distanceInput').value);
 const graph = {
     "A": {"B": parseInt(document.getElementById("cell-b2").textContent)},
     "B": {"C": parseInt(document.getElementById("cell-c2").textContent), 
-    "D": parseInt(document.getElementById("cell-d2").textContent)},
+          "D": parseInt(document.getElementById("cell-d2").textContent)},
     "C": {"D": parseInt(document.getElementById("cell-d3").textContent)},
     "D": {"E": parseInt(document.getElementById("cell-e4").textContent)},
     "E": {"F": parseInt(document.getElementById("cell-f5").textContent)},
@@ -123,11 +110,46 @@ const correctDistanceDijkstra = dijkstraDistances[endCity];
 const correctDistanceBellmanFord = bellmanFordDistances[endCity];
 
 const resultDiv = document.getElementById('result');
+const endTime = new Date().getTime(); 
+const timeTaken = (endTime - startTime) / 1000; 
+
 if (userDistance === correctDistanceDijkstra && userDistance === correctDistanceBellmanFord) {
     resultDiv.textContent = `Correct! The shortest distance from ${startCity} to ${endCity} is ${userDistance} km.`;
+    document.getElementById('nameInputDiv').style.display = 'block';
+    
+    document.getElementById('saveNameBtn').addEventListener('click', function() {
+        const userName = document.getElementById('nameInput').value;
+        
+        fetch('http://localhost:3000/save-result', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: userName,
+                startCity: startCity,
+                endCity: endCity,
+                correctDistance: userDistance,
+                timeTaken: timeTaken
+            }),
+        })
+        .then(response => response.text())
+        .then(data => {
+            resultDiv.textContent += ` Result saved successfully!`;
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            resultDiv.textContent += ` Error saving result.`;
+            console.error('Error:', error);
+        });
+    });
+    
 } else {
     resultDiv.textContent = `Incorrect. The shortest distance from ${startCity} to ${endCity} is ${correctDistanceDijkstra} km (Dijkstra) and ${correctDistanceBellmanFord} km (Bellman-Ford).`;
 }
 }
 
 document.querySelector('button').addEventListener('click', checkAnswer);
+
+
+

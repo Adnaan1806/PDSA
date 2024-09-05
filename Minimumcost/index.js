@@ -1,3 +1,5 @@
+import { solve } from 'assignment-solver';
+
 document.getElementById('generateCosts').addEventListener('click', generateRandomCosts);
 document.getElementById('calculate').addEventListener('click', calculateMinimumCost);
 
@@ -54,10 +56,11 @@ function calculateMinimumCost() {
     saveResultToDatabase(minCost, end - start);
 }
 
-// Mock function to represent the Hungarian Algorithm
 function hungarianAlgorithm(matrix) {
-    // Replace this mock result with the actual implementation
-    return Math.floor(Math.random() * 1000); // Placeholder return value
+    // Convert matrix to be suitable for the solver
+    const costMatrix = matrix.map(row => row.slice());
+    const result = solve(costMatrix);
+    return result.cost;
 }
 
 function saveResultToDatabase(cost, time) {
