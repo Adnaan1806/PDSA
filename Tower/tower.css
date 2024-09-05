@@ -1,0 +1,117 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+    margin: 40px 0;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+input[type="number"],
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10px;
+    width: calc(100% - 22px); /* Responsive width */
+    max-width: 300px; /* Maximum width */
+    box-sizing: border-box;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 4px rgba(52, 152, 219, 0.3);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+#towers {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px; /* Space between towers */
+    margin: 30px auto;
+    width: 90%;
+    max-width: 800px; /* Maximum width for better appearance */
+}
+
+.tower {
+    width: 120px;
+    height: 400px;
+    position: relative;
+    border: 2px solid #3498db;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.tower:hover {
+    transform: scale(1.05);
+}
+
+/* Remove the rod from the tower */
+.tower .rod {
+    display: none; /* Hide the rod */
+}
+
+.disk {
+    position: absolute;
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: drop 0.3s ease-out;
+    margin-bottom: 10px; /* Space between disks */
+}
+
+@keyframes drop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.disk:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+#moveCount {
+    font-weight: bold;
+    color: #3498db;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
